@@ -2,12 +2,14 @@ package org.example;
 import java.util.Date;
 
 public class CronometroCosmico {
-    Date fechaPlanetaTierra;
-    Date fechaPlanetaNuevo;
+    static Date fechaPlanetaTierra;
+    static Date fechaPlanetaNuevo;
 
     public CronometroCosmico() {
         fechaPlanetaTierra = new Date();
-        fechaPlanetaNuevo = new Date();
+        long fnp = fechaPlanetaTierra.getTime();
+        fechaPlanetaNuevo = new Date((long) (fnp * CronometroCosmico.getFC()));
+
     }
 
     static double FC = 0.5;
@@ -16,24 +18,12 @@ public class CronometroCosmico {
         return FC;
     }
 
-    public static void setFC(double FC) {
-        CronometroCosmico.FC = FC;
-    }
-
-    public Date getFechaPlanetaTierra() {
+    public static Date getFechaPlanetaTierra() {
         return fechaPlanetaTierra;
     }
 
-    public void setFechaPlanetaTierra(Date fechaPlanetaTierra) {
-        this.fechaPlanetaTierra = fechaPlanetaTierra;
-    }
-
-    public Date getFechaPlanetaNuevo() {
+    public static Date getFechaPlanetaNuevo() {
         return fechaPlanetaNuevo;
-    }
-
-    public void setFechaPlanetaNuevo(Date fechaPlanetaNuevo) {
-        this.fechaPlanetaNuevo = fechaPlanetaNuevo;
     }
 
     @Override
