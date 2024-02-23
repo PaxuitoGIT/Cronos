@@ -18,6 +18,12 @@ public class CronometroCosmico {
         return FC;
     }
 
+    public static void setFC(double FC) {
+        CronometroCosmico.FC = FC;
+        long fnp = fechaPlanetaTierra.getTime();
+        fechaPlanetaNuevo = new Date((long) (fnp * CronometroCosmico.getFC()));
+    }
+
     public static Date getFechaPlanetaTierra() {
         return fechaPlanetaTierra;
     }
