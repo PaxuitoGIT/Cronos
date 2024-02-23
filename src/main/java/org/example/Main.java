@@ -7,6 +7,8 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
+        CronometroCosmico cronometroCosmico = new CronometroCosmico(); // Necesaria para la inicialización de las fechas
+
         int opcion;
         double fc;
 

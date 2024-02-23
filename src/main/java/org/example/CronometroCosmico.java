@@ -9,7 +9,6 @@ public class CronometroCosmico {
         fechaPlanetaTierra = new Date();
         long fnp = fechaPlanetaTierra.getTime();
         fechaPlanetaNuevo = new Date((long) (fnp * CronometroCosmico.getFC()));
-
     }
 
     static double FC = 0.5;
@@ -32,11 +31,4 @@ public class CronometroCosmico {
         return fechaPlanetaNuevo;
     }
 
-    @Override
-    public String toString() {
-        return "-" +
-                "fechaPlanetaTierra= " + fechaPlanetaTierra +
-                ", fechaPlanetaNuevo= " + fechaPlanetaNuevo +
-                ", Factor de conversión= " + FC;
-    }
 }
