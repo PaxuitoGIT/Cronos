@@ -35,4 +35,12 @@ public class CronometroCosmico {
     public void setFechaPlanetaNuevo(Date fechaPlanetaNuevo) {
         this.fechaPlanetaNuevo = fechaPlanetaNuevo;
     }
+
+    @Override
+    public String toString() {
+        return "-" +
+                "fechaPlanetaTierra= " + fechaPlanetaTierra +
+                ", fechaPlanetaNuevo= " + fechaPlanetaNuevo +
+                ", Factor de conversión= " + FC;
+    }
 }
