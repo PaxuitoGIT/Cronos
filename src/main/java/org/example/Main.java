@@ -9,7 +9,7 @@ public class Main {
 
         CronometroCosmico cronometroCosmico = new CronometroCosmico(); // Necesaria para la inicialización de las fechas
 
-        Recursos recursos = new Recursos(100.0, 200.0, 300.0);
+        Recursos recursos = new Recursos();
 
         int opcion;
         double fc;
