@@ -3,8 +3,8 @@ package org.example;
 import java.util.*;
 
 public class PlanificadorTareas {
-    private List<Tarea> tareas;
-    private List<Tripulante> tripulantes;
+    private final List<Tarea> tareas;
+    private final List<Tripulante> tripulantes;
 
     public PlanificadorTareas(List<Tarea> tareas, List<Tripulante> tripulantes) {
         this.tareas = tareas;
@@ -24,7 +24,7 @@ public class PlanificadorTareas {
         for (Tripulante tripulante : tripulantes) {
             System.out.println("Tripulante: " + tripulante.getNombre());
             for (Tarea tarea : tripulante.getTareas()) {
-                System.out.println("Tarea: " + tarea.getNombre() + ", Duración: " + tarea.getDuracion());
+                System.out.println("Tarea: " + tarea.nombre() + ", Duración: " + tarea.duracion());
             }
             System.out.println("--------------------");
         }
@@ -34,6 +34,27 @@ public class PlanificadorTareas {
         if (tripulante.getTareas().contains(tarea)) {
             tripulante.getTareas().remove(tarea);
             distribuirTareas();
+        }
+    }
+
+    public record Tarea(String nombre, int duracion) {
+    }
+
+    public static class Tripulante {
+        private final String nombre;
+        private final List<Tarea> tareas;
+
+        public Tripulante(String nombre) {
+            this.nombre = nombre;
+            this.tareas = new ArrayList<>();
+        }
+
+        public String getNombre() {
+            return nombre;
+        }
+
+        public List<Tarea> getTareas() {
+            return tareas;
         }
     }
 }
