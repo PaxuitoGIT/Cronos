@@ -12,11 +12,15 @@ public class PlanificadorTareas {
     }
 
     public void distribuirTareas() {
-        int i = 0;
-        for (Tarea tarea : tareas) {
-            Tripulante tripulante = tripulantes.get(i % tripulantes.size());
-            tripulante.getTareas().add(tarea);
-            i++;
+        try {
+            int i = 0;
+            for (Tarea tarea : tareas) {
+                Tripulante tripulante = tripulantes.get(i % tripulantes.size());
+                tripulante.getTareas().add(tarea);
+                i++;
+            }
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
