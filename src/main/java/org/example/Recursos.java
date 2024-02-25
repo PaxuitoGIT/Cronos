@@ -38,4 +38,22 @@ public class Recursos {
         }
         return max;
     }
+
+    public double[] predecirNecesidadesFuturas(double consumoDiario, int dias) {
+        double[] necesidadesFuturas = new double[dias];
+        for (int i = 0; i < dias; i++) {
+            necesidadesFuturas[i] = consumoDiario * (i + 1);
+        }
+        return necesidadesFuturas;
+    }
+
+    public boolean alertaUmbralSeguro(double umbral, double[] consumos) {
+        for (double consumo : consumos) {
+            if (consumo < umbral) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
 }
