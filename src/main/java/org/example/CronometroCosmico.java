@@ -5,7 +5,7 @@ public class CronometroCosmico {
     static Date fechaPlanetaTierra;
     static Date fechaPlanetaNuevo;
 
-    public CronometroCosmico() {
+    static {
         fechaPlanetaTierra = new Date();
         long fnp = fechaPlanetaTierra.getTime();
         fechaPlanetaNuevo = new Date((long) (fnp * CronometroCosmico.getFC()));

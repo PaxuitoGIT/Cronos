@@ -8,11 +8,15 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        CronometroCosmico cronometroCosmico = new CronometroCosmico(); // Es necesaria para la inicialización de las fechas, si se elimina, muestra error
+        //Ejercicio 2
 
         Recursos recursos = new Recursos();
 
+        //Ejercicio 3
+
         AlertaYMonitoreo alertaYMonitoreo = new AlertaYMonitoreo();
+
+        //Ejercicio 5
 
         NavegadorEstelar navegadorEstelar = new NavegadorEstelar(10);
 
@@ -35,18 +39,18 @@ public class Main {
             opcion = scanner.nextInt();
 
             switch (opcion) {
-                case 1:
+                case 1: //Ejercicio 1
                     System.out.println("\n\033[1;36m------------------------\033[0m");
                     System.out.println("\033[1;36mFecha actual en la Tierra: " + DateFormat.getDateTimeInstance().format(CronometroCosmico.getFechaPlanetaTierra()) + "\033[0m");
                     System.out.println("\033[1;36m------------------------\033[0m\n");
                     break;
-                case 2:
+                case 2: //Ejercicio 1
                     System.out.println("\n\033[1;36m------------------------\033[0m");
                     System.out.println("\033[1;36mFecha actual en el nuevo planeta: " + DateFormat.getDateTimeInstance().format(CronometroCosmico.getFechaPlanetaNuevo()) + "\033[0m");
                     System.out.println("\033[1;36mFactor de conversión actual: " + CronometroCosmico.getFC() + "\033[0m");
                     System.out.println("\033[1;36m------------------------\033[0m\n");
                     break;
-                case 3:
+                case 3: //Ejercicio 1
                     System.out.println("\n\033[1;36m------------------------\033[0m");
                     System.out.print("\033[1;36mIntroduce el nuevo factor de conversión: \033[0m");
                     fc = scanner.nextDouble();
@@ -54,7 +58,7 @@ public class Main {
                     System.out.println("\033[1;36mFactor de conversión actualizado\033[0m");
                     System.out.println("\033[1;36m------------------------\033[0m\n");
                     break;
-                case 4:
+                case 4: //Ejercicio 1
                     System.out.println("\n\033[1;36m------------------------\033[0m");
                     System.out.println("\033[1;36mValores máximos para cada tipo de dato:\033[0m");
                     System.out.println("\033[1;36mByte: " + Byte.MAX_VALUE + "\033[0m");
@@ -65,7 +69,7 @@ public class Main {
                     System.out.println("\033[1;36mDouble: " + Double.MAX_VALUE + "\033[0m");
                     System.out.println("\033[1;36m------------------------\033[0m\n");
                     break;
-                case 5:
+                case 5: //Ejercicio 2
                     System.out.println("\n\033[1;36m------------------------\033[0m");
                     System.out.println("\033[1;36mIntroduce el consumo de agua: \033[0m");
                     double agua = scanner.nextDouble();
@@ -95,7 +99,7 @@ public class Main {
                     }
                     System.out.println("\033[1;36m------------------------\033[0m\n");
                     break;
-                case 6:
+                case 6: //Ejercicio 3
                     System.out.println("\n\033[1;36m------------------------\033[0m");
                     alertaYMonitoreo.monitorVariables();
                     if (!alertaYMonitoreo.identificarEventos(5).isEmpty()) {
@@ -108,7 +112,7 @@ public class Main {
                     alertaYMonitoreo.sugerenciaAjuste();
                     System.out.println("\033[1;36m------------------------\033[0m\n");
                     break;
-                case 7:
+                case 7: //Ejercicio 4
                     System.out.println("\n\033[1;36m------------------------\033[0m");
                     System.out.println("\033[1;36mPlanificador de Tareas\033[0m");
 
@@ -127,7 +131,7 @@ public class Main {
 
                     System.out.println("\033[1;36m------------------------\033[0m\n");
                     break;
-                case 8:
+                case 8: //Ejercicio 5
                     System.out.println("\n\033[1;36m------------------------\033[0m");
                     System.out.println("\033[1;36mNavegador Estelar\033[0m");
 
@@ -148,7 +152,7 @@ public class Main {
 
                     System.out.println("\033[1;36m------------------------\033[0m\n");
                     break;
-                case 9:
+                case 9: //Ejercicio 6
                     System.out.println("\n\033[1;36m------------------------\033[0m");
                     System.out.println("\033[1;36mComunicador Interplanetario\033[0m");
                     scanner.nextLine();
