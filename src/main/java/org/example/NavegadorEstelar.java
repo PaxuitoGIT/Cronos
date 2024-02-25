@@ -5,6 +5,14 @@ public class NavegadorEstelar {
     private final int[][] terreno;
     private final int[][] costos;
 
+    public int[][] getTerreno() {
+        return terreno;
+    }
+
+    public int[][] getCostos() {
+        return costos;
+    }
+
     public NavegadorEstelar(int size) {
         this.terreno = new int[size][size];
         this.costos = new int[size][size];
@@ -63,7 +71,12 @@ public class NavegadorEstelar {
         generarMatrizCostos();
         int[][] costosOptimizados = multiplicarMatrices(terreno, costos);
 
-        for (int[] fila : costosOptimizados) {
+        assert costosOptimizados != null;
+        for (int i = 0; i < costosOptimizados.length; i++){
+            System.arraycopy(costosOptimizados[i], 0, costos[i], 0, costos[i].length);
+        }
+
+        for (int[] fila : costos) {
             for (int valor : fila) {
                 System.out.print(valor + " ");
             }
@@ -72,20 +85,29 @@ public class NavegadorEstelar {
     }
 
     public static int[][] multiplicarMatrices(int[][] a, int[][] b) {
-        int filasA = a.length;
-        int columnasA = a[0].length;
-        int columnasB = b[0].length;
+        try {
+            int filasA = a.length;
+            int columnasA = a[0].length;
+            int columnasB = b[0].length;
 
-        int[][] resultado = new int[filasA][columnasB];
+            int[][] resultado = new int[filasA][columnasB];
 
-        for (int i = 0; i < filasA; i++) {
-            for (int j = 0; j < columnasB; j++) {
-                for (int k = 0; k < columnasA; k++) {
-                    resultado[i][j] += a[i][k] * b[k][j];
+            for (int i = 0; i < filasA; i++) {
+                for (int j = 0; j < columnasB; j++) {
+                    for (int k = 0; k < columnasA; k++) {
+                        if (a[i][k] == b[k][j]) {
+                            resultado[i][j] += a[i][k] * b[k][j];
+                        } else {
+                            resultado[i][j] += 0;
+                        }
+                    }
                 }
             }
-        }
 
-        return resultado;
+            return resultado;
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return null;
+        }
     }
-}
+    }
