@@ -12,4 +12,14 @@ public class ComunicadorInterplanetario {
         }
         return contador;
     }
+
+    public static String invertirMensaje(String mensaje) {
+        return new StringBuilder(mensaje).reverse().toString();
+    }
+
+    public static boolean verificarIntegridad(String mensaje) {
+        String mensajeSinEspacios = mensaje.replaceAll("\\s", "");
+        String mensajeInvertido = invertirMensaje(mensajeSinEspacios);
+        return mensajeSinEspacios.equals(mensajeInvertido);
+    }
 }
