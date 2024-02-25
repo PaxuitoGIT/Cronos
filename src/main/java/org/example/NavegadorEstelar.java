@@ -27,23 +27,42 @@ public class NavegadorEstelar {
             System.out.println("El punto de inicio y final son el mismo");
             return;
         }
+
+        int dirX = endX > startX ? 1 : -1;
+        int dirY = endY > startY ? 1 : -1;
+
+        int x = startX;
+        int y = startY;
+        while (x != endX || y != endY) {
+            terreno[x][y] = 2;
+
+            if (x != endX) {
+                x += dirX;
+            }
+            if (y != endY) {
+                y += dirY;
+            }
+        }
+        terreno[endX][endY] = 2;
     }
 
-    int dirX = endX > startX ? 1 : -1;
-    int dirY = endY > startY ? 1 : -1;
-
-    int x = startX;
-    int y = startY;
-    while (x != endX || y != endY) {
-        terreno[x][y] = 2;
-
-        if (x != endX) {
-            x += dirX;
-        }
-        if (y != endY) {
-            y += dirY;
-        }
+    public void planificarConstruccion(int x, int y) {
+        terreno[x][y] = 1;
     }
 
-    terreno[endX][endY] = 2;
+    public static int[][] multiplicarMatrices(int[][] a, int[][] b) {
+        int filasA = a.length;
+        int columnasA = a[0].length;
+        int columnasB = b[0].length;
+
+        for (int i = 0; i < filasA; i++) {
+            for (int j = 0; j < columnasB; j++) {
+                for (int k = 0; k < columnasA; k++) {
+                    resultado[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+
+        return resultado;
+    }
 }
