@@ -22,4 +22,12 @@ public class AlertaYMonitoreo {
         System.out.println("Temperatura: " + temperatura.get(temperatura.size() - 1));
         System.out.println("Presión: " + presion.get(presion.size() - 1));
     }
+
+    public void alertaTripulacion() {
+        System.out.println("Alerta a la tripulación: Los niveles de radiación son peligrosos");
+    }
+
+    public void sugerenciaAjuste() {
+        System.out.println("Sugerencia de ajustes: Reducir la radiación y la presión, y aumentar la temperatura");
+    }
 }
