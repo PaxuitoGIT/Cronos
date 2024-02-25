@@ -4,7 +4,7 @@ public class NavegadorEstelar {
 
     private int[][] terreno;
 
-    public NavegadorEstelar(int[][] terreno) {
+    public NavegadorEstelar(int size) {
         this.terreno = new int[size][size];
     }
 
@@ -54,6 +54,8 @@ public class NavegadorEstelar {
         int filasA = a.length;
         int columnasA = a[0].length;
         int columnasB = b[0].length;
+
+        int[][] resultado = new int[filasA][columnasB];
 
         for (int i = 0; i < filasA; i++) {
             for (int j = 0; j < columnasB; j++) {
