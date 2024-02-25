@@ -2,16 +2,18 @@ package org.example;
 
 public class NavegadorEstelar {
 
-    private int[][] terreno;
+    private final int[][] terreno;
+    private final int[][] costos;
 
     public NavegadorEstelar(int size) {
         this.terreno = new int[size][size];
+        this.costos = new int[size][size];
     }
 
     public void visualizarTerreno() {
-        for (int i = 0; i < terreno.length; i++) {
-            for (int j = 0; j < terreno[i].length; j++) {
-                System.out.print(terreno[i][j] + " ");
+        for (int[] ints : terreno) {
+            for (int anInt : ints) {
+                System.out.print(anInt + " ");
             }
             System.out.println();
         }
@@ -48,6 +50,25 @@ public class NavegadorEstelar {
 
     public void planificarConstruccion(int x, int y) {
         terreno[x][y] = 1;
+    }
+
+    public void generarMatrizCostos() {
+        for (int i = 0; i < terreno.length; i++) {
+            for (int j = 0; j < terreno[i].length; j++) {
+                costos[i][j] = terreno[i][j] == 1 ? 10 : 1;
+            }
+        }
+    }
+    public void optimizarRutasYRecursos() {
+        generarMatrizCostos();
+        int[][] costosOptimizados = multiplicarMatrices(terreno, costos);
+
+        for (int[] fila : costosOptimizados) {
+            for (int valor : fila) {
+                System.out.print(valor + " ");
+            }
+            System.out.println();
+        }
     }
 
     public static int[][] multiplicarMatrices(int[][] a, int[][] b) {

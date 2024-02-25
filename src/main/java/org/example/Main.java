@@ -129,6 +129,9 @@ public class Main {
                     System.out.println("\033[1;36mPlanificar ruta desde (0, 0) hasta (9, 9):\033[0m");
                     navegadorEstelar.planificarRuta(0, 0, 9, 9);
 
+                    System.out.println("\033[1;36mOptimizar rutas y recursos:\033[0m");
+                    navegadorEstelar.optimizarRutasYRecursos();
+
                     System.out.println("\033[1;36mTerreno después de planificar construcción y ruta:\033[0m");
                     navegadorEstelar.visualizarTerreno();
 
