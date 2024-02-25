@@ -29,6 +29,7 @@ public class Main {
             System.out.println("6. Monitorear variables ambientales críticas");
             System.out.println("7. Planificador de Tareas");
             System.out.println("8. Navegador Estelar");
+            System.out.println("9. Comunicador Interplanetario");
             System.out.println("0. Salir");
             System.out.print("Elige una opción: ");
             opcion = scanner.nextInt();
@@ -134,6 +135,26 @@ public class Main {
 
                     System.out.println("\033[1;36mTerreno después de planificar construcción y ruta:\033[0m");
                     navegadorEstelar.visualizarTerreno();
+
+                    System.out.println("\033[1;36m------------------------\033[0m\n");
+                    break;
+                case 9:
+                    System.out.println("\n\033[1;36m------------------------\033[0m");
+                    System.out.println("\033[1;36mComunicador Interplanetario\033[0m");
+                    scanner.nextLine();
+                    System.out.println("Introduce tu mensaje: ");
+                    String mensaje = scanner.nextLine();
+
+                    System.out.println("\033[1;36mMensaje: " + mensaje + "\033[0m");
+
+                    int vocales = ComunicadorInterplanetario.contarVocales(mensaje);
+                    System.out.println("\033[1;36mNúmero de vocales en el mensaje: " + vocales + "\033[0m");
+
+                    String mensajeInvertido = ComunicadorInterplanetario.invertirMensaje(mensaje);
+                    System.out.println("Mensaje invertido: " + mensajeInvertido);
+
+                    boolean esPalindromo = ComunicadorInterplanetario.verificarIntegridad(mensaje);
+                    System.out.println("\033[1;36mEl mensaje es un palíndromo: " + esPalindromo + "\033[0m");
 
                     System.out.println("\033[1;36m------------------------\033[0m\n");
                     break;
