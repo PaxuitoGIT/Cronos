@@ -20,10 +20,11 @@ public class Main {
 
         NavegadorEstelar navegadorEstelar = new NavegadorEstelar(10);
 
-        int opcion;
+        int opcion = 11;
         double fc;
 
         do {
+            try {
             System.out.println("\n--- Menú ---");
             System.out.println("1. Ver fecha actual en la Tierra");
             System.out.println("2. Ver fecha actual en el nuevo planeta");
@@ -182,6 +183,10 @@ public class Main {
                     System.out.println("\033[1;36mOpción no válida\033[0m");
                     System.out.println("\033[1;36m------------------------\033[0m\n");
                     break;
+            }
+            } catch (Exception e) {
+                System.out.println("\033[1;31mError: " + e.getMessage() + "\033[0m");
+                scanner.nextLine();
             }
         } while (opcion != 0);
     }
