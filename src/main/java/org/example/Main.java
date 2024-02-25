@@ -1,5 +1,6 @@
 package org.example;
 import java.text.DateFormat;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -7,7 +8,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        CronometroCosmico cronometroCosmico = new CronometroCosmico(); // Necesaria para la inicialización de las fechas
+        CronometroCosmico cronometroCosmico = new CronometroCosmico(); // Es necesaria para la inicialización de las fechas, si se elimina, muestra error
 
         Recursos recursos = new Recursos();
 
@@ -24,6 +25,7 @@ public class Main {
             System.out.println("4. Ver valores máximos para cada tipo de dato");
             System.out.println("5. Calcular consumo de recursos");
             System.out.println("6. Monitorear variables ambientales críticas");
+            System.out.println("7. Planificador de Tareas");
             System.out.println("0. Salir");
             System.out.print("Elige una opción: ");
             opcion = scanner.nextInt();
@@ -100,6 +102,24 @@ public class Main {
                     System.out.println("\033[1;36mDescomposición del problema: " + alertaYMonitoreo.descomponerProblema(100) + "\033[0m");
                     alertaYMonitoreo.alertaTripulacion();
                     alertaYMonitoreo.sugerenciaAjuste();
+                    System.out.println("\033[1;36m------------------------\033[0m\n");
+                    break;
+                case 7:
+                    System.out.println("\n\033[1;36m------------------------\033[0m");
+                    System.out.println("\033[1;36mPlanificador de Tareas\033[0m");
+
+                    PlanificadorTareas.Tarea tarea1 = new PlanificadorTareas.Tarea("Tarea 1", 2);
+                    PlanificadorTareas.Tarea tarea2 = new PlanificadorTareas.Tarea("Tarea 2", 3);
+                    PlanificadorTareas.Tarea tarea3 = new PlanificadorTareas.Tarea("Tarea 3", 1);
+
+                    PlanificadorTareas.Tripulante tripulante1 = new PlanificadorTareas.Tripulante("Tripulante 1");
+                    PlanificadorTareas.Tripulante tripulante2 = new PlanificadorTareas.Tripulante("Tripulante 2");
+
+                    PlanificadorTareas planificador = new PlanificadorTareas(Arrays.asList(tarea1, tarea2, tarea3), Arrays.asList(tripulante1, tripulante2));
+
+                    planificador.distribuirTareas();
+                    planificador.visualizarHorarios();
+
                     System.out.println("\033[1;36m------------------------\033[0m\n");
                     break;
                 case 0:
