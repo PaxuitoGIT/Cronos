@@ -31,15 +31,21 @@ public class AlertaYMonitoreo {
     }
 
     public List<Integer> identificarEventos(int n) {
+        try {
         List <Integer> eventos = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
             eventos.add(i);
         }
         return eventos;
+    } catch (Exception e) {
+        System.out.println("Error: " + e.getMessage());
+        return null;
+    }
     }
 
     public List<Integer> descomponerProblema(int problema) {
+        try {
         List<Integer> descomponerProblema = new ArrayList<>();
         for (int i = 2; i <= problema; i++) {
             while (problema % i == 0) {
@@ -48,5 +54,9 @@ public class AlertaYMonitoreo {
             }
         }
         return descomponerProblema;
+    } catch (Exception e) {
+        System.out.println("Error: " + e.getMessage());
+        return null;
+    }
     }
 }
