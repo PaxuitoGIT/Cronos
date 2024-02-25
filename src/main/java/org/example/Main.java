@@ -11,6 +11,8 @@ public class Main {
 
         Recursos recursos = new Recursos();
 
+        AlertaYMonitoreo alertaYMonitoreo = new AlertaYMonitoreo();
+
         int opcion;
         double fc;
 
@@ -21,6 +23,7 @@ public class Main {
             System.out.println("3. Cambiar factor de conversión");
             System.out.println("4. Ver valores máximos para cada tipo de dato");
             System.out.println("5. Calcular consumo de recursos");
+            System.out.println("6. Monitorear variables ambientales críticas");
             System.out.println("0. Salir");
             System.out.print("Elige una opción: ");
             opcion = scanner.nextInt();
@@ -84,6 +87,19 @@ public class Main {
                     } else {
                         System.out.println("\033[1;36mNo se ha superado el umbral\033[0m");
                     }
+                    System.out.println("\033[1;36m------------------------\033[0m\n");
+                    break;
+                case 6:
+                    System.out.println("\n\033[1;36m------------------------\033[0m");
+                    alertaYMonitoreo.monitorVariables();
+                    if (!alertaYMonitoreo.identificarEventos(5).isEmpty()) {
+                        System.out.println("\033[1;36mEventos identificados\033[0m");
+                    } else {
+                        System.out.println("\033[1;36mNo se han identificado eventos\033[0m");
+                    }
+                    System.out.println("\033[1;36mDescomposición del problema: " + alertaYMonitoreo.descomponerProblema(100) + "\033[0m");
+                    alertaYMonitoreo.alertaTripulacion();
+                    alertaYMonitoreo.sugerenciaAjuste();
                     System.out.println("\033[1;36m------------------------\033[0m\n");
                     break;
                 case 0:
