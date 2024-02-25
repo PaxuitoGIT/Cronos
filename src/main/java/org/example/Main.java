@@ -112,8 +112,18 @@ public class Main {
                     System.out.println("\n\033[1;36m------------------------\033[0m");
                     System.out.println("\033[1;36mPlanificador de Tareas\033[0m");
 
-                    PlanificadorTareas planificador = getPlanificadorTareas();
+                    PlanificadorTareas.Tarea tarea1 = new PlanificadorTareas.Tarea("Regar plantas", 2);
+                    PlanificadorTareas.Tarea tarea2 = new PlanificadorTareas.Tarea("Limpiar nave", 3);
+                    PlanificadorTareas.Tarea tarea3 = new PlanificadorTareas.Tarea("Documentar día", 1);
+
+                    PlanificadorTareas.Tripulante tripulante1 = new PlanificadorTareas.Tripulante("Tripulante 1");
+                    PlanificadorTareas.Tripulante tripulante2 = new PlanificadorTareas.Tripulante("Tripulante 2");
+
+                    PlanificadorTareas planificador = new PlanificadorTareas(Arrays.asList(tarea1, tarea2, tarea3), Arrays.asList(tripulante1, tripulante2));
+
+                    planificador.distribuirTareas();
                     planificador.visualizarHorarios();
+                    planificador.ajustarTareas(tripulante1, tarea1);
 
                     System.out.println("\033[1;36m------------------------\033[0m\n");
                     break;
@@ -170,19 +180,5 @@ public class Main {
                     break;
             }
         } while (opcion != 0);
-    }
-
-    private static PlanificadorTareas getPlanificadorTareas() {
-        PlanificadorTareas.Tarea tarea1 = new PlanificadorTareas.Tarea("Regar plantas", 2 );
-        PlanificadorTareas.Tarea tarea2 = new PlanificadorTareas.Tarea("Limpiar nave", 3);
-        PlanificadorTareas.Tarea tarea3 = new PlanificadorTareas.Tarea("Documentar día", 1);
-
-        PlanificadorTareas.Tripulante tripulante1 = new PlanificadorTareas.Tripulante("Tripulante 1");
-        PlanificadorTareas.Tripulante tripulante2 = new PlanificadorTareas.Tripulante("Tripulante 2");
-
-        PlanificadorTareas planificador = new PlanificadorTareas(Arrays.asList(tarea1, tarea2, tarea3), Arrays.asList(tripulante1, tripulante2));
-
-        planificador.distribuirTareas();
-        return planificador;
     }
 }
