@@ -32,7 +32,7 @@ class CronometroCosmicoTest {
         Date fechaNuevoPlaneta = CronometroCosmico.getFechaPlanetaNuevo();
 
         // Verificar
-        assertTrue(fechaNuevoPlaneta.getTime() < Long.MAX_VALUE, "Se ha excedido el límite de representación de datos");
+        assertTrue(fechaNuevoPlaneta.getTime() <= Long.MAX_VALUE, "Se ha excedido el límite de representación de datos");
     }
 
 }

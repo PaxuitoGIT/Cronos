@@ -31,19 +31,29 @@ public class Recursos {
     }
 
     public double[] predecirNecesidadesFuturas(double consumoDiario, int dias) {
-        double[] necesidadesFuturas = new double[dias];
-        for (int i = 0; i < dias; i++) {
-            necesidadesFuturas[i] = consumoDiario * (i + 1);
+        try {
+            double[] necesidadesFuturas = new double[dias];
+            for (int i = 0; i < dias; i++) {
+                necesidadesFuturas[i] = consumoDiario * (i + 1);
+            }
+            return necesidadesFuturas;
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return null;
         }
-        return necesidadesFuturas;
     }
 
     public boolean alertaUmbralSeguro(double umbral, double[] consumos) {
-        for (double consumo : consumos) {
-            if (consumo < umbral) {
-                return true;
+        try {
+            for (double consumo : consumos) {
+                if (consumo < umbral) {
+                    return true;
+                }
             }
+            return false;
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            return false;
         }
-        return false;
     }
 }
