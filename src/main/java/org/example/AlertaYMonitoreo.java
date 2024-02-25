@@ -30,4 +30,24 @@ public class AlertaYMonitoreo {
     public void sugerenciaAjuste() {
         System.out.println("Sugerencia de ajustes: Reducir la radiación y la presión, y aumentar la temperatura");
     }
+
+    public List<Integer> identificarEventos(int n) {
+        List <Integer> eventos = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            eventos.add(i);
+        }
+        return eventos;
+    }
+
+    public List<Integer> descomponerProblema(int problema) {
+        List<Integer> descomponerProblema = new ArrayList<>();
+        for (int i = 2; i <= problema; i++) {
+            while (problema % i == 0) {
+                descomponerProblema.add(i);
+                problema /= i;
+            }
+        }
+        return descomponerProblema;
+    }
 }
