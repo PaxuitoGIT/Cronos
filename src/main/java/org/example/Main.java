@@ -14,6 +14,8 @@ public class Main {
 
         AlertaYMonitoreo alertaYMonitoreo = new AlertaYMonitoreo();
 
+        NavegadorEstelar navegadorEstelar = new NavegadorEstelar(10);
+
         int opcion;
         double fc;
 
@@ -26,6 +28,7 @@ public class Main {
             System.out.println("5. Calcular consumo de recursos");
             System.out.println("6. Monitorear variables ambientales críticas");
             System.out.println("7. Planificador de Tareas");
+            System.out.println("8. Navegador Estelar");
             System.out.println("0. Salir");
             System.out.print("Elige una opción: ");
             opcion = scanner.nextInt();
@@ -110,6 +113,24 @@ public class Main {
 
                     PlanificadorTareas planificador = getPlanificadorTareas();
                     planificador.visualizarHorarios();
+
+                    System.out.println("\033[1;36m------------------------\033[0m\n");
+                    break;
+                case 8:
+                    System.out.println("\n\033[1;36m------------------------\033[0m");
+                    System.out.println("\033[1;36mNavegador Estelar\033[0m");
+
+                    System.out.println("\033[1;36mTerreno actual:\033[0m");
+                    navegadorEstelar.visualizarTerreno();
+
+                    System.out.println("\033[1;36mPlanificar construcción en (5, 5):\033[0m");
+                    navegadorEstelar.planificarConstruccion(5, 5);
+
+                    System.out.println("\033[1;36mPlanificar ruta desde (0, 0) hasta (9, 9):\033[0m");
+                    navegadorEstelar.planificarRuta(0, 0, 9, 9);
+
+                    System.out.println("\033[1;36mTerreno después de planificar construcción y ruta:\033[0m");
+                    navegadorEstelar.visualizarTerreno();
 
                     System.out.println("\033[1;36m------------------------\033[0m\n");
                     break;
